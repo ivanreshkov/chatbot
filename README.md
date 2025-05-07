@@ -6,6 +6,8 @@ numpy             2.2.5
 openai            1.77.0
 pandas            2.2.3
 
+Note: OpenAI API KEY must be added as a string to the variable defined in the scripts "API_KEY" before running the program.
+
 In the Python script, we first classify the messages. At the beginning, we check whether the current document already contains a column with the predicted categories. If a file has not yet been classified, we initiate the classification process, where each message is sent to OpenAI. Based on the instructions provided to the model, which define the available categories, it classifies each message accordingly. This process takes some time. Categories that are not defined in the instructions parameter of the create function cannot appear in the model’s response. Instead, such messages will be categorized as “No useful information.”
 
 After the classification is complete, a Tkinter-based user interface is launched, allowing us to chat with the OpenAI LLM. I used the Assistant object from OpenAI, which enables uploading a CSV file from which the model can extract information based on user prompts. The chat history is managed using a list called "history", where all user inputs are saved and sent back to the model with each new message.
